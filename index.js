@@ -235,7 +235,7 @@ app.post("/api/properties/:id/inquiries",async(req,res)=>{
   res.status(201).json(r.rows[0]);
 });
 
-app.use(express.static(path.join(__dirname,"../client")));
-app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"../client/index.html")));
+app.use(express.static(__dirname));
+app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"index.html")));
 
 app.listen(PORT,()=>console.log(`NaijaHomes running on http://localhost:${PORT}`));
