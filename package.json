@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node server/index.js",
-    "start": "node server/index.js",
+    "dev": "node index.js",
+    "start": "node index.js",
     "seed-demo": "node seed-demo.js"
   },
   "dependencies": {
