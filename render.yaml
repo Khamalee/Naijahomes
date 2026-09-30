@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: naijahomes
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: naijahomes-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://naijahomes.onrender.com
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+  - type: pserv
+    name: naijahomes-db
+    runtime: postgres
+    plan: free
+    databaseName: naijahomes
+    user: naijahomes
